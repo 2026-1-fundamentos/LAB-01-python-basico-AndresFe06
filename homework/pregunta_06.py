@@ -26,3 +26,20 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
+    
+    dicc = {}
+    with open("files\\input\\data.csv", "r") as file:
+        data = file.readlines()
+        for line in data:
+            columns = line.strip().split("\t")
+            dict_str = columns[4]
+            items = dict_str.split(",")
+            for item in items:
+                key, value = item.split(":")
+                value = int(value)
+                key = key.strip()
+                if key not in dicc:
+                    dicc[key] = [value]
+                else:
+                    dicc[key].append(value)
+    return [(key, min(values), max(values)) for key, values in sorted(dicc.items())]

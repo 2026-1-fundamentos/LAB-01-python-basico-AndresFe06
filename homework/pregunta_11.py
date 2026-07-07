@@ -16,3 +16,12 @@ def pregunta_11():
 
 
     """
+    dicc = {}
+    with open('files\\input\\data.csv', 'r') as file:
+        for row in file.readlines():
+            columns = row.split('\t')
+            num = int(columns[1])
+            letters = columns[3].split(',')
+            for letter in letters:
+                dicc[letter] = dicc.get(letter, 0) + num
+    return dict(sorted(dicc.items()))

@@ -15,3 +15,17 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    
+    dicc = {}
+    with open("files\\input\\data.csv", "r") as file:
+          data = file.readlines()
+          for line in data:
+              columns = line.strip().split("\t")
+              letter = columns[0]
+              dicts=columns[4].split(",")
+              suma=0
+              for i in dicts: 
+                value=i.split(":")[1]
+                suma+=int(value)            
+              dicc[letter] = dicc.get(letter, 0) + suma
+    return dicc

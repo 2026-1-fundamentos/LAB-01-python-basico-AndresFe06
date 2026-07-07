@@ -26,3 +26,13 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    
+    dicc = {}
+    with open("files\\input\\data.csv", "r") as file:
+        data = file.readlines()
+        for line in data:
+            columns = line.strip().split("\t")
+            date = columns[2]
+            month = date.split("-")[1]
+            dicc[month] = dicc.get(month, 0) + 1
+    return sorted(dicc.items())

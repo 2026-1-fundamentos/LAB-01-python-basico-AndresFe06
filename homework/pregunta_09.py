@@ -24,3 +24,14 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    
+    dicc = {}
+    with open("files\\input\\data.csv", "r") as file:
+        data = file.readlines()
+        for line in data:
+            columns = line.strip().split("\t")
+            entries = columns[4].split(",")
+            for entry in entries:
+                key = entry.split(":")[0].strip()
+                dicc[key] = dicc.get(key, 0) + 1
+    return dicc

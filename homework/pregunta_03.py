@@ -15,3 +15,12 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    dicc={}
+    with open ("files\\input\\data.csv", "r") as file:
+        data=file.readlines()
+        for line in data:
+            columns = line.strip().split("\t")
+            letter = columns[0]
+            num = int(columns[1])
+            dicc[letter] = dicc.get(letter, 0) + num
+    return sorted(dicc.items())

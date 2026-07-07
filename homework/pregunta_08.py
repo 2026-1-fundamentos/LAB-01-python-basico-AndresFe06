@@ -27,3 +27,17 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+    
+    dicc = {}
+    with open("files\\input\\data.csv", "r") as file:
+        data = file.readlines()
+        for line in data:
+            columns = line.strip().split("\t")
+            letter = columns[0]
+            num = int(columns[1])
+            if num not in dicc:
+                dicc[num] = [letter]
+            else:
+                if letter not in dicc[num]:
+                    dicc[num].append(letter)
+    return sorted((num, sorted(letters)) for num, letters in dicc.items())
