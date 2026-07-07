@@ -8,7 +8,7 @@ utilizar pandas, numpy o scipy.
 
 def pregunta_02():
     dicc={}
-    with open ("data.csv", "r") as file:
+    with open ("/files/input/data.csv", "r") as file:
         data=file.readlines()
         letters=[row[0] for row in data]
         for letra in letters:
