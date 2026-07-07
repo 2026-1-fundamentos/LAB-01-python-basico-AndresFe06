@@ -8,7 +8,7 @@ utilizar pandas, numpy o scipy.
 
 def pregunta_01():
 
-    with open("files\\input\\data.csv","r") as file:
+    with open("data.csv","r") as file:
         data = file.readlines()
         suma = 0
         for line in data:
