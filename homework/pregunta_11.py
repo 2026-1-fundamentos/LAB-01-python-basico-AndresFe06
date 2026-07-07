@@ -17,7 +17,7 @@ def pregunta_11():
 
     """
     dicc = {}
-    with open('/files/input/data.csv', 'r') as file:
+    with open('files/input/data.csv', 'r') as file:
         for row in file.readlines():
             columns = row.split('\t')
             num = int(columns[1])
